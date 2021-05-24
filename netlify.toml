@@ -1,0 +1,7 @@
+[build]
+  publish = "public"
+  command = "yarn build"
+  environment = { GATSBY_CPU_COUNT = "1" }
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
