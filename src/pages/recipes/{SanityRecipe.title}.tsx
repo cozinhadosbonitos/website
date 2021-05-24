@@ -39,14 +39,15 @@ interface RecipePagePops {
 
 const RecipePage = ({ data }: RecipePagePops) => {
   const recipe = data.sanityRecipe
+  const keywords = [
+    recipe.title,
+    ...recipe.ingredients.map((ingredient) => ingredient.food.name),
+  ]
   return (
     <Layout>
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
       <Container>
-        <SEO
-          title={recipe.title}
-          keywords={[`gatsby`, `application`, `react`]}
-        />
+        <SEO title={recipe.title} keywords={keywords} />
         <h1>{recipe.title}</h1>
         <h2>Ingredients</h2>
         <ul>
