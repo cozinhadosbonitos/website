@@ -22,6 +22,7 @@ interface Recipe {
   id: string
   title: string
   steps: string[]
+  tags: string[]
   photo: {
     asset: {
       gatsbyImageData: IGatsbyImageData
@@ -38,15 +39,12 @@ interface RecipePagePops {
 
 const RecipePage = ({ data }: RecipePagePops) => {
   const recipe = data.sanityRecipe
-  const keywords = [
-    recipe.title,
-    ...recipe.ingredients.map((ingredient) => ingredient.food.name),
-  ]
+  console.info(recipe.ingredients)
   return (
     <Layout>
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
       <Container>
-        <SEO title={recipe.title} keywords={keywords} />
+        <SEO title={recipe.title} keywords={recipe.tags} />
         <h1>{recipe.title}</h1>
         <h2>Ingredients</h2>
         <ul>
@@ -76,6 +74,7 @@ export const pageQuery = graphql`
       ...FormattedDate
       title
       steps
+      tags
       photo {
         asset {
           gatsbyImageData(
