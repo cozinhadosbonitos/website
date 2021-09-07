@@ -2,6 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { Container } from './layout-components'
+import { FaSearch } from 'react-icons/fa'
+import { Link } from 'gatsby'
 
 const NavList = styled.ul`
   display: flex;
@@ -22,6 +24,11 @@ const Navigation = () => (
         <li>All Recipes</li>
         <li>Sweet</li>
         <li>Savoury</li>
+        <li>
+          <Link to="/search/">
+            <FaSearch />
+          </Link>
+        </li>
       </NavList>
     </Container>
   </StyledNav>
