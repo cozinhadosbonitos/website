@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "netlify/**/*"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",

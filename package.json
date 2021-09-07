@@ -11,6 +11,8 @@
     "gatsby"
   ],
   "dependencies": {
+    "@netlify/functions": "^0.7.2",
+    "@sanity/client": "^2.18.0",
     "babel-plugin-styled-components": "1.13.2",
     "gatsby": "3.13.0",
     "gatsby-plugin-image": "1.13.0",
