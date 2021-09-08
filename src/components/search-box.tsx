@@ -8,10 +8,9 @@ export function SearchBox() {
   const [debouncedQuery] = useDebounce(query, 300)
 
   useEffect(() => {
-    if (!debouncedQuery || window === undefined) {
+    if (debouncedQuery === undefined || window === undefined) {
       return
     }
-    console.log(debouncedQuery)
     window
       .fetch(`/.netlify/functions/search?q=${debouncedQuery}`)
       .then((response) => response.json())
@@ -26,10 +25,13 @@ export function SearchBox() {
       />
       {!!results &&
         results.map((result, index) => (
-          <div>
+          <div key={index}>
             Result {index}: {JSON.stringify(result)}
           </div>
         ))}
+      {results.length === 0 && !!debouncedQuery && (
+        <div>Sorry, no Results found :(</div>
+      )}
     </div>
   )
 }
