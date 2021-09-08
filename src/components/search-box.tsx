@@ -5,16 +5,21 @@ import { useDebounce } from 'use-debounce'
 export function SearchBox() {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
+  const [isInFlight, setIsInFlight] = useState(false)
   const [debouncedQuery] = useDebounce(query, 300)
 
   useEffect(() => {
     if (debouncedQuery === undefined || window === undefined) {
       return
     }
+    setIsInFlight(true)
     window
       .fetch(`/.netlify/functions/search?q=${debouncedQuery}`)
       .then((response) => response.json())
-      .then((searchResults) => setResults(searchResults))
+      .then((searchResults) => {
+        setResults(searchResults)
+        setIsInFlight(false)
+      })
   }, [debouncedQuery])
   return (
     <div>
@@ -29,7 +34,7 @@ export function SearchBox() {
             Result {index}: {JSON.stringify(result)}
           </div>
         ))}
-      {results.length === 0 && !!debouncedQuery && (
+      {results.length === 0 && !!debouncedQuery && !isInFlight && (
         <div>Sorry, no Results found :(</div>
       )}
     </div>
