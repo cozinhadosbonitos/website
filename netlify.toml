@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "yarn build"
+  command = "npm run build"
   environment = { GATSBY_CPU_COUNT = "1" }
 
 [[plugins]]
