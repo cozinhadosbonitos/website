@@ -11,7 +11,7 @@
     "gatsby"
   ],
   "dependencies": {
-    "babel-plugin-styled-components": "2.0.2",
+    "babel-plugin-styled-components": "2.0.3",
     "gatsby": "4.7.2",
     "gatsby-plugin-image": "2.7.0",
     "gatsby-plugin-manifest": "4.7.0",
@@ -35,7 +35,7 @@
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@types/react-helmet": "6.1.5",
-    "@types/styled-components": "5.1.22",
+    "@types/styled-components": "5.1.23",
     "@typescript-eslint/parser": "5.11.0",
     "eslint": "8.8.0",
     "eslint-config-prettier": "8.3.0",
