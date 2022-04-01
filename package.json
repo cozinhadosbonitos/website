@@ -21,7 +21,7 @@
     "gatsby-plugin-sharp": "4.10.1",
     "gatsby-plugin-styled-components": "5.10.0",
     "gatsby-plugin-typescript": "4.10.0",
-    "gatsby-source-sanity": "7.3.2",
+    "gatsby-source-sanity": "7.4.1",
     "gatsby-transformer-sharp": "4.10.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
