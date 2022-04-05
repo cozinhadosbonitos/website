@@ -11,25 +11,10 @@ concurrency:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        linter:
-          - eslint
-          - prettier
-          - tsc
-
-    steps:
-      - uses: actions/checkout@v3
-
-      # Read node version from `.nvmrc` file
-      - id: nvmrc
-        uses: browniebroke/read-nvmrc-action@v1
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '${{ steps.nvmrc.outputs.node_version }}'
-
-      - run: npm i
-      - run: npm run lint:${{ matrix.linter }}
+    uses: browniebroke/github-actions/.github/workflows/ts-lint.yml@v1
+  deploy:
+    uses: browniebroke/github-actions/.github/workflows/netlify-deploy.yml@v1
+    with:
+      netlify_site_id: 'eeed038d-eb38-46f6-ba73-387aedb05935'
+    secrets:
+      netlify_auth_token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
