@@ -1,7 +1,15 @@
+const baseUrl =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:8000'
+    : process.env.REVIEW_ID
+    ? `https://deploy-preview-${process.env.REVIEW_ID}--cozinhadosbonitos.netlify.app`
+    : `https://cozinhadosbonitos.com`
+
 module.exports = {
   siteMetadata: {
     title: `Cozinha dos Bonitos`,
     description: `Cooking website Cozinha dos Bonitos`,
+    siteUrl: baseUrl,
     author: `@browniebroke`,
   },
   plugins: [
