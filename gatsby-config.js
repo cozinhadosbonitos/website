@@ -3,7 +3,7 @@ const baseUrl =
     ? 'http://localhost:8000'
     : process.env.REVIEW_ID
     ? `https://deploy-preview-${process.env.REVIEW_ID}--cozinhadosbonitos.netlify.app`
-    : `http://cozinhadosbonitos.com`
+    : `https://cozinhadosbonitos.com`
 
 module.exports = {
   siteMetadata: {
