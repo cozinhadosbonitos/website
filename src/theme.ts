@@ -22,7 +22,7 @@ const spacers = [
   baseSpacer * 3,
 ]
 
-const theme: SiteTheme = {
+export const theme: SiteTheme = {
   white: '#fffaff',
   black: '#0c2340',
   blue: '#2a5db0',
@@ -31,5 +31,3 @@ const theme: SiteTheme = {
   mdBreakpoint: '768px',
   containerMaxWidth: `900px`,
 }
-
-export default theme

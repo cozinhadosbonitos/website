@@ -15,7 +15,7 @@ const StyledNav = styled.nav`
   border-right-width: 0px;
 `
 
-const Navigation = () => (
+export const Navigation = () => (
   <StyledNav>
     <Container>
       <NavList>
@@ -26,5 +26,3 @@ const Navigation = () => (
     </Container>
   </StyledNav>
 )
-
-export default Navigation
