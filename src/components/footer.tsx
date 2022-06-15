@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   padding: 1rem 0;
 `
 
-const Footer = () => (
+export const Footer = () => (
   <StyledFooter>
     <Container>
       © {new Date().getFullYear()}, Built with
@@ -17,5 +17,3 @@ const Footer = () => (
     </Container>
   </StyledFooter>
 )
-
-export default Footer

@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   }
 `
 
-const Header = () => (
+export const Header = () => (
   <StyledHeader>
     <Container>
       <Link to="/">
@@ -28,5 +28,3 @@ const Header = () => (
     </Container>
   </StyledHeader>
 )
-
-export default Header

@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
+import { Layout } from '../components/layout'
 import { Container } from '../components/layout-components'
-import SEO from '../components/seo'
-import RecipeCard, { Recipe } from '../components/recipe-card'
+import { SEO } from '../components/seo'
+import { RecipeCard, Recipe } from '../components/recipe-card'
 
 interface RecipeNode {
   node: Recipe
