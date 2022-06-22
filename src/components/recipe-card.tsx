@@ -44,7 +44,11 @@ const StyledArticle = styled.article<SiteThemeProps>`
   }
 `
 
-export const RecipeCard: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
+type RecipeCardProps = {
+  recipe: Recipe
+}
+
+export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
     <Link to={recipe.url} title={recipe.title}>
       <StyledArticle>

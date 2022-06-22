@@ -8,7 +8,11 @@ import { Navigation } from './navigation'
 import { Footer } from './footer'
 import { theme } from '../theme'
 
-export const Layout: React.FC = ({ children }) => {
+type LayoutProps = {
+  children?: React.ReactNode
+}
+
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <ThemeProvider theme={theme}>
