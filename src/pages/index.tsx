@@ -37,7 +37,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query RecipesList {
-    allSanityRecipe(sort: { fields: createdAt, order: DESC }) {
+    allSanityRecipe(sort: { createdAt: DESC }) {
       edges {
         node {
           id
