@@ -1,7 +1,7 @@
 # Cozinha dos Bonitos
 
 <p align="center">
-  <a href="https://github.com/cozinhadosbonitos/website/actions?query=workflow%3ACI">
+  <a href="https://github.com/cozinhadosbonitos/website/actions/workflows/ci.yml?query=branch%3Amain">
     <img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/cozinhadosbonitos/website/ci.yml?branch=main&label=CI&logo=github&logoColor=white&style=flat-square">
   </a>
   <a href="https://app.netlify.com/sites/cozinhadosbonitos/deploys">
