@@ -40,7 +40,9 @@ const StyledArticle = styled.article<SiteThemeProps>`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25), 0 5px 8px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 8px 15px rgba(0, 0, 0, 0.25),
+      0 5px 8px rgba(0, 0, 0, 0.06);
   }
 `
 
