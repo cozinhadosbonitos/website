@@ -45,7 +45,6 @@ module.exports = {
         isBaseProvider: false,
       },
     },
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-sanity`,
       options: {
