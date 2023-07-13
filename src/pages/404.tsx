@@ -13,8 +13,8 @@ const NotFoundPage = () => (
       minHeight="30vh"
       direction="column"
     >
-      <Heading as="h1">NOT FOUND</Heading>
-      <Text>You just hit a route that doesn&#39;t exist... the sadness.</Text>
+      <Heading>Not Found</Heading>
+      <Text>You just hit a page that doesn't exist...</Text>
     </Flex>
   </Layout>
 )

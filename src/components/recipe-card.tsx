@@ -36,7 +36,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
       >
         <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
         <CardBody>
-          <Heading size="lg">
+          <Heading as="h3" size="lg">
             {recipe.title} <br />
             <Text as="small" fontSize="0.8em">
               {recipe.date}

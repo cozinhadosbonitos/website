@@ -24,7 +24,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
     <Layout>
       <Container>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <Heading as="h1">List of recipes:</Heading>
+        <Heading size="xl">List of recipes:</Heading>
         {recipes.map((recipe) => (
           <RecipeCard recipe={recipe} key={recipe.id} />
         ))}
