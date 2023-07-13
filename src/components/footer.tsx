@@ -3,7 +3,7 @@ import { Box, Container, Link } from '@chakra-ui/react'
 
 export const Footer = () => (
   <Box color="black" backgroundColor="primary" paddingY={8}>
-    <Container maxWidth="4xl">
+    <Container>
       © {new Date().getFullYear()}, Built with
       {` `}
       <Link href="https://www.gatsbyjs.org" isExternal variant="currentColor">

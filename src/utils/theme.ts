@@ -21,6 +21,11 @@ const customTheme = {
     },
   },
   components: {
+    Container: {
+      baseStyle: {
+        maxWidth: '4xl',
+      },
+    },
     Heading: {
       baseStyle: {
         marginTop: 6,

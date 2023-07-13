@@ -49,7 +49,7 @@ const RecipePage = ({ data }: RecipePagePops) => {
   return (
     <Layout paddingTop={0}>
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
-      <Container maxWidth="4xl">
+      <Container>
         <SEO title={recipe.title} keywords={recipe.tags} />
         <Heading size="xl">{recipe.title}</Heading>
         <Heading as="h3" size="lg">

@@ -22,7 +22,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
   const recipes = data.allSanityRecipe.edges.map(({ node }) => node)
   return (
     <Layout>
-      <Container maxWidth="4xl">
+      <Container>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <Heading as="h1">List of recipes:</Heading>
         {recipes.map((recipe) => (
