@@ -8,7 +8,7 @@ import { Footer } from './footer'
 import { theme } from '../theme'
 
 import { theme as chakraTheme } from '../utils/theme'
-import { ChakraProvider, Container, Flex } from '@chakra-ui/react'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
 
 type LayoutProps = {
   children?: React.ReactNode

@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
-
-// @ts-ignore
-import { SiteThemeProps } from '../theme'
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 
 export interface Recipe {
