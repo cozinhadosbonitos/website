@@ -4,7 +4,13 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 import { Layout } from '../../components/layout'
 import { SEO } from '../../components/seo'
-import { Container, Heading } from '@chakra-ui/react'
+import {
+  Container,
+  Heading,
+  ListItem,
+  OrderedList,
+  UnorderedList,
+} from '@chakra-ui/react'
 
 interface Ingredient {
   display: string
@@ -41,23 +47,23 @@ const RecipePage = ({ data }: RecipePagePops) => {
   const recipe = data.sanityRecipe
   console.info(recipe.ingredients)
   return (
-    <Layout>
+    <Layout paddingTop={0}>
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
       <Container maxWidth="4xl">
         <SEO title={recipe.title} keywords={recipe.tags} />
         <Heading as="h1">{recipe.title}</Heading>
         <Heading as="h2">Ingredients</Heading>
-        <ul>
+        <UnorderedList>
           {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient.display}</li>
+            <ListItem key={index}>{ingredient.display}</ListItem>
           ))}
-        </ul>
+        </UnorderedList>
         <Heading as="h2">Steps</Heading>
-        <ol>
+        <OrderedList>
           {recipe.steps.map((step, index) => (
-            <li key={index}>{step}</li>
+            <ListItem key={index}>{step}</ListItem>
           ))}
-        </ol>
+        </OrderedList>
       </Container>
     </Layout>
   )
