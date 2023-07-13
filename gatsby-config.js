@@ -37,6 +37,14 @@ module.exports = {
         icon: `src/images/site-icon.png`,
       },
     },
+    {
+      resolve: '@chakra-ui/gatsby-plugin',
+      options: {
+        resetCSS: true,
+        isUsingColorMode: true,
+        isBaseProvider: false,
+      },
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-sanity`,
