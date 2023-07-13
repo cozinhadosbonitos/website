@@ -51,14 +51,18 @@ const RecipePage = ({ data }: RecipePagePops) => {
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
       <Container maxWidth="4xl">
         <SEO title={recipe.title} keywords={recipe.tags} />
-        <Heading as="h1">{recipe.title}</Heading>
-        <Heading as="h2">Ingredients</Heading>
+        <Heading size="xl">{recipe.title}</Heading>
+        <Heading as="h3" size="lg">
+          Ingredients
+        </Heading>
         <UnorderedList>
           {recipe.ingredients.map((ingredient, index) => (
             <ListItem key={index}>{ingredient.display}</ListItem>
           ))}
         </UnorderedList>
-        <Heading as="h2">Steps</Heading>
+        <Heading as="h3" size="lg">
+          Steps
+        </Heading>
         <OrderedList>
           {recipe.steps.map((step, index) => (
             <ListItem key={index}>{step}</ListItem>
