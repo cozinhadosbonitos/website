@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { Container, Heading } from '@chakra-ui/react'
 
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
 import { RecipeCard, Recipe } from '../components/recipe-card'
-import { Container, Heading } from '@chakra-ui/react'
 
 interface RecipeNode {
   node: Recipe

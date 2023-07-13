@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
-
-import { Layout } from '../../components/layout'
-import { SEO } from '../../components/seo'
 import {
   Container,
   Heading,
@@ -11,6 +8,9 @@ import {
   OrderedList,
   UnorderedList,
 } from '@chakra-ui/react'
+
+import { Layout } from '../../components/layout'
+import { SEO } from '../../components/seo'
 
 interface Ingredient {
   display: string

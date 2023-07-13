@@ -1,11 +1,11 @@
 import * as React from 'react'
+import { Box, ChakraProvider, Flex } from '@chakra-ui/react'
 
 import { Header } from './header'
 import { Navigation } from './navigation'
 import { Footer } from './footer'
 
 import { theme as chakraTheme } from '../utils/theme'
-import { Box, ChakraProvider, Flex } from '@chakra-ui/react'
 
 const DEFAULT_PADDING = 10
 

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { Box, Flex } from '@chakra-ui/react'
 
 import SiteLogo from '../icons/logo.svg'
-import { Box, Flex } from '@chakra-ui/react'
 
 export const Header = () => (
   <Flex color="primary" paddingY="10" justifyContent="center" as="header">

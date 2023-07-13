@@ -1,8 +1,8 @@
 import * as React from 'react'
+import { Flex, Heading, Text } from '@chakra-ui/react'
 
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
-import { Flex, Heading, Text } from '@chakra-ui/react'
 
 const NotFoundPage = () => (
   <Layout>
