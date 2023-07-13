@@ -1,29 +1,35 @@
 import * as React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { Box, ChakraProvider, Flex } from '@chakra-ui/react'
 
-import { GlobalStyle } from './global-style'
-import { MainWrapper } from './layout-components'
+import { theme } from '../utils/theme'
+
 import { Header } from './header'
 import { Navigation } from './navigation'
 import { Footer } from './footer'
-import { theme } from '../theme'
+
+const DEFAULT_PADDING = 10
 
 type LayoutProps = {
+  paddingTop?: number
   children?: React.ReactNode
 }
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({
+  paddingTop = DEFAULT_PADDING,
+  children,
+}: LayoutProps) => {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainWrapper>
+      <ChakraProvider theme={theme}>
+        <Flex direction="column" minHeight="100vh">
           <Header />
           <Navigation />
-          <main>{children}</main>
+          <Box as="main" paddingY={DEFAULT_PADDING} paddingTop={paddingTop}>
+            {children}
+          </Box>
           <Footer />
-        </MainWrapper>
-      </ThemeProvider>
+        </Flex>
+      </ChakraProvider>
     </>
   )
 }

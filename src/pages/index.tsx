@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { Container, Heading } from '@chakra-ui/react'
 
 import { Layout } from '../components/layout'
-import { Container } from '../components/layout-components'
 import { SEO } from '../components/seo'
 import { RecipeCard, Recipe } from '../components/recipe-card'
 
@@ -24,7 +24,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
     <Layout>
       <Container>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <h1>List of recipes:</h1>
+        <Heading size="xl">List of recipes:</Heading>
         {recipes.map((recipe) => (
           <RecipeCard recipe={recipe} key={recipe.id} />
         ))}

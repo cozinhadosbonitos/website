@@ -1,9 +1,15 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import {
+  Container,
+  Heading,
+  ListItem,
+  OrderedList,
+  UnorderedList,
+} from '@chakra-ui/react'
 
 import { Layout } from '../../components/layout'
-import { Container } from '../../components/layout-components'
 import { SEO } from '../../components/seo'
 
 interface Ingredient {
@@ -41,23 +47,27 @@ const RecipePage = ({ data }: RecipePagePops) => {
   const recipe = data.sanityRecipe
   console.info(recipe.ingredients)
   return (
-    <Layout>
+    <Layout paddingTop={0}>
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
       <Container>
         <SEO title={recipe.title} keywords={recipe.tags} />
-        <h1>{recipe.title}</h1>
-        <h2>Ingredients</h2>
-        <ul>
+        <Heading size="xl">{recipe.title}</Heading>
+        <Heading as="h3" size="lg">
+          Ingredients
+        </Heading>
+        <UnorderedList>
           {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient.display}</li>
+            <ListItem key={index}>{ingredient.display}</ListItem>
           ))}
-        </ul>
-        <h2>Steps</h2>
-        <ol>
+        </UnorderedList>
+        <Heading as="h3" size="lg">
+          Steps
+        </Heading>
+        <OrderedList>
           {recipe.steps.map((step, index) => (
-            <li key={index}>{step}</li>
+            <ListItem key={index}>{step}</ListItem>
           ))}
-        </ol>
+        </OrderedList>
       </Container>
     </Layout>
   )

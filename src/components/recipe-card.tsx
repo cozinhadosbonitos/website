@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
-import styled from 'styled-components'
-
-// @ts-ignore
-import { SiteThemeProps } from '../theme'
+import { Card, CardBody, Heading, Text } from '@chakra-ui/react'
 
 export interface Recipe {
   id: string
@@ -19,33 +16,6 @@ export interface Recipe {
   }
 }
 
-const Description = styled.div<SiteThemeProps>`
-  padding: ${({ theme }) => theme.spacings[3]};
-`
-
-const StyledImage = styled(GatsbyImage)`
-  flex-shrink: 0;
-`
-
-const StyledArticle = styled.article<SiteThemeProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: middle;
-  margin: ${({ theme }) => theme.spacings[5]};
-  border: var(--black) 3px solid;
-
-  @media (min-width: ${({ theme }) => theme.mdBreakpoint}) {
-    flex-direction: row;
-  }
-
-  &:hover {
-    cursor: pointer;
-    box-shadow:
-      0 8px 15px rgba(0, 0, 0, 0.25),
-      0 5px 8px rgba(0, 0, 0, 0.06);
-  }
-`
-
 type RecipeCardProps = {
   recipe: Recipe
 }
@@ -53,16 +23,28 @@ type RecipeCardProps = {
 export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
     <Link to={recipe.url} title={recipe.title}>
-      <StyledArticle>
-        <StyledImage image={recipe.photo.asset.gatsbyImageData} alt="" />
-        <Description>
-          <h2>
+      <Card
+        flexDirection={{ base: 'column', md: 'row' }}
+        overflow="hidden"
+        marginY={6}
+        borderRadius="none"
+        borderWidth={2}
+        _hover={{
+          boxShadow:
+            '0 8px 15px rgba(0, 0, 0, 0.25), 0 5px 8px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
+        <CardBody>
+          <Heading as="h3" size="lg">
             {recipe.title} <br />
-            <small>{recipe.date}</small>
-          </h2>
-          <p>TODO</p>
-        </Description>
-      </StyledArticle>
+            <Text as="small" fontSize="0.8em">
+              {recipe.date}
+            </Text>
+          </Heading>
+          <Text py={2}>TODO</Text>
+        </CardBody>
+      </Card>
     </Link>
   )
 }
