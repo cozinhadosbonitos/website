@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Box, ChakraProvider, Flex } from '@chakra-ui/react'
 
+import { theme } from '../utils/theme'
+
 import { Header } from './header'
 import { Navigation } from './navigation'
 import { Footer } from './footer'
-
-import { theme as chakraTheme } from '../utils/theme'
 
 const DEFAULT_PADDING = 10
 
@@ -20,7 +20,7 @@ export const Layout = ({
 }: LayoutProps) => {
   return (
     <>
-      <ChakraProvider theme={chakraTheme}>
+      <ChakraProvider theme={theme}>
         <Flex direction="column" minHeight="100vh">
           <Header />
           <Navigation />
