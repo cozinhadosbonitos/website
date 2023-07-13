@@ -15,14 +15,6 @@ const customTheme = {
         fontSize: '1.25rem',
         overflowY: 'scroll',
       },
-      a: {
-        textDecoration: 'none',
-        color: 'primary',
-        '&:active, &:hover': {
-          textDecoration: 'underlined',
-          color: 'primaryDark',
-        },
-      },
       ':where(svg:not([fill]))': {
         fill: 'currentColor',
       },
@@ -49,6 +41,15 @@ const customTheme = {
         '&:active, &:hover': {
           textDecoration: 'none',
           color: 'primaryDark',
+        },
+      },
+      variants: {
+        currentColor: {
+          color: 'currentColor',
+          '&:active, &:hover': {
+            color: 'currentColor',
+            textDecoration: 'underlined',
+          },
         },
       },
     },

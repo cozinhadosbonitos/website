@@ -6,7 +6,7 @@ export const Footer = () => (
     <Container maxWidth="4xl">
       © {new Date().getFullYear()}, Built with
       {` `}
-      <Link href="https://www.gatsbyjs.org" isExternal>
+      <Link href="https://www.gatsbyjs.org" isExternal variant="currentColor">
         Gatsby
       </Link>
     </Container>
