@@ -5,5 +5,5 @@
  */
 exports.onInitialClientRender = () => {
   require('@fontsource/lato')
-  require('@fontsource/karla')
+  require('@fontsource/karla/600.css')
 }

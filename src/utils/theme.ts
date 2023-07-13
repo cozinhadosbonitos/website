@@ -31,7 +31,7 @@ const customTheme = {
         marginTop: 6,
         marginBottom: 2,
         lineHeight: '1.1',
-        fontWeight: '800',
+        fontWeight: '600',
         textRendering: 'optimizeLegibility',
       },
     },
