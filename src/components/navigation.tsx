@@ -9,7 +9,7 @@ export const Navigation = () => (
     borderRightWidth={0}
   >
     <Container maxWidth="4xl">
-      <Flex alignItems="center" justifyContent="space-around">
+      <Flex alignItems="center" justifyContent="space-around" paddingY={4}>
         <Box>All Recipes</Box>
         <Box>Sweet</Box>
         <Box>Savoury</Box>
