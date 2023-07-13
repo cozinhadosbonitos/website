@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-
-import { Container } from './layout-components'
+import { Container } from '@chakra-ui/react'
 
 const NavList = styled.ul`
   display: flex;
@@ -17,7 +16,7 @@ const StyledNav = styled.nav`
 
 export const Navigation = () => (
   <StyledNav>
-    <Container>
+    <Container maxWidth="4xl">
       <NavList>
         <li>All Recipes</li>
         <li>Sweet</li>

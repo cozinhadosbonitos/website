@@ -1,30 +1,15 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
 
-import { Container } from './layout-components'
-import Icon from '../icons/logo.svg'
-
-const StyledHeader = styled.header`
-  color: var(--primary-color);
-  padding: 3rem 0;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  h1 {
-    margin: 0;
-  }
-  svg {
-    fill: currentColor;
-  }
-`
+import SiteLogo from '../icons/logo.svg'
+import { Box, Flex } from '@chakra-ui/react'
 
 export const Header = () => (
-  <StyledHeader>
-    <Container>
+  <Flex color="primary" paddingY="10" justifyContent="center" as="header">
+    <Box margin="0 auto">
       <Link to="/">
-        <Icon />
+        <SiteLogo />
       </Link>
-    </Container>
-  </StyledHeader>
+    </Box>
+  </Flex>
 )

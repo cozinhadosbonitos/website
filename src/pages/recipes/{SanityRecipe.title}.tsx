@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 import { Layout } from '../../components/layout'
-import { Container } from '../../components/layout-components'
 import { SEO } from '../../components/seo'
+import { Container, Heading } from '@chakra-ui/react'
 
 interface Ingredient {
   display: string
@@ -43,16 +43,16 @@ const RecipePage = ({ data }: RecipePagePops) => {
   return (
     <Layout>
       <GatsbyImage image={recipe.photo.asset.gatsbyImageData} alt="" />
-      <Container>
+      <Container maxWidth="4xl">
         <SEO title={recipe.title} keywords={recipe.tags} />
-        <h1>{recipe.title}</h1>
-        <h2>Ingredients</h2>
+        <Heading as="h1">{recipe.title}</Heading>
+        <Heading as="h2">Ingredients</Heading>
         <ul>
           {recipe.ingredients.map((ingredient, index) => (
             <li key={index}>{ingredient.display}</li>
           ))}
         </ul>
-        <h2>Steps</h2>
+        <Heading as="h2">Steps</Heading>
         <ol>
           {recipe.steps.map((step, index) => (
             <li key={index}>{step}</li>

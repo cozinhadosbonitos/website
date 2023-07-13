@@ -2,9 +2,9 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import { Layout } from '../components/layout'
-import { Container } from '../components/layout-components'
 import { SEO } from '../components/seo'
 import { RecipeCard, Recipe } from '../components/recipe-card'
+import { Container } from '@chakra-ui/react'
 
 interface RecipeNode {
   node: Recipe
@@ -22,7 +22,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
   const recipes = data.allSanityRecipe.edges.map(({ node }) => node)
   return (
     <Layout>
-      <Container>
+      <Container maxWidth="4xl">
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <h1>List of recipes:</h1>
         {recipes.map((recipe) => (

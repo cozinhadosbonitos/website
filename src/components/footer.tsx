@@ -1,19 +1,14 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import { Container } from './layout-components'
-
-const StyledFooter = styled.footer`
-  color: var(--primary-color-text);
-  background: var(--primary-color);
-  padding: 1rem 0;
-`
+import { Box, Container, Link } from '@chakra-ui/react'
 
 export const Footer = () => (
-  <StyledFooter>
-    <Container>
+  <Box color="black" backgroundColor="primary" paddingY={8}>
+    <Container maxWidth="4xl">
       © {new Date().getFullYear()}, Built with
       {` `}
-      <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <Link href="https://www.gatsbyjs.org" isExternal>
+        Gatsby
+      </Link>
     </Container>
-  </StyledFooter>
+  </Box>
 )
