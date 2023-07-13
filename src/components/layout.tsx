@@ -2,11 +2,13 @@ import * as React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle } from './global-style'
-import { MainWrapper } from './layout-components'
 import { Header } from './header'
 import { Navigation } from './navigation'
 import { Footer } from './footer'
 import { theme } from '../theme'
+
+import { theme as chakraTheme } from '../utils/theme'
+import { ChakraProvider, Container, Flex } from '@chakra-ui/react'
 
 type LayoutProps = {
   children?: React.ReactNode
@@ -15,15 +17,17 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainWrapper>
-          <Header />
-          <Navigation />
-          <main>{children}</main>
-          <Footer />
-        </MainWrapper>
-      </ThemeProvider>
+      <ChakraProvider theme={chakraTheme}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Flex direction="column" minHeight="100vh">
+            <Header />
+            <Navigation />
+            <main>{children}</main>
+            <Footer />
+          </Flex>
+        </ThemeProvider>
+      </ChakraProvider>
     </>
   )
 }
