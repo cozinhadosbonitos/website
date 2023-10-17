@@ -18,7 +18,7 @@
     "@fontsource/karla": "5.0.15",
     "@fontsource/lato": "5.0.15",
     "framer-motion": "10.16.4",
-    "gatsby": "5.12.6",
+    "gatsby": "5.12.7",
     "gatsby-plugin-image": "3.12.1",
     "gatsby-plugin-manifest": "5.12.1",
     "gatsby-plugin-offline": "6.12.1",
