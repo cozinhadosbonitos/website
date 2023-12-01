@@ -17,7 +17,7 @@
     "@emotion/styled": "11.11.0",
     "@fontsource/karla": "5.0.17",
     "@fontsource/lato": "5.0.17",
-    "framer-motion": "10.16.10",
+    "framer-motion": "10.16.11",
     "gatsby": "5.12.11",
     "gatsby-plugin-image": "3.12.3",
     "gatsby-plugin-manifest": "5.12.3",
