@@ -37,27 +37,59 @@ const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`
       </a>
     </header>
 
-    <nav class="border-y border-gray-300">
+    <nav class="border-b border-gray-200">
       <div
-        class="mx-auto flex max-w-4xl items-center justify-around px-4 py-3 text-sm font-medium tracking-wide uppercase"
+        class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3"
       >
-        <a
-          href="/"
-          class="text-gray-600 hover:text-primary-dark transition-colors"
-          >All Recipes</a
+        <div class="hidden gap-8 sm:flex">
+          <a
+            href="/"
+            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
+            >Home</a
+          >
+          <a
+            href="/recipes/"
+            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
+            >Recipes</a
+          >
+        </div>
+        <button
+          id="mobile-menu-btn"
+          class="text-gray-600 hover:text-primary-dark sm:hidden"
+          aria-label="Toggle menu"
         >
-        <a
-          href="/"
-          class="text-gray-600 hover:text-primary-dark transition-colors"
-          >Sweet</a
-        >
-        <a
-          href="/"
-          class="text-gray-600 hover:text-primary-dark transition-colors"
-          >Savoury</a
-        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden border-t border-gray-200 sm:hidden">
+        <div class="flex flex-col gap-2 px-4 py-3">
+          <a
+            href="/"
+            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
+            >Home</a
+          >
+          <a
+            href="/recipes/"
+            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
+            >Recipes</a
+          >
+        </div>
       </div>
     </nav>
+    <script>
+      import '../lib/mobile-menu.js'
+    </script>
 
     <main class="flex-1 py-10">
       <slot />

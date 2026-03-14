@@ -20,6 +20,7 @@ export interface SanityRecipe {
   title: string
   _createdAt: string
   tags: string[]
+  courseType: string
   steps: string[]
   photo: SanityImageSource
   ingredients: {
@@ -38,6 +39,7 @@ export async function getAllRecipes(): Promise<SanityRecipe[]> {
       title,
       _createdAt,
       tags,
+      courseType,
       photo,
       ingredients[] {
         display,
@@ -59,6 +61,7 @@ export async function getRecipeByTitle(
       title,
       _createdAt,
       tags,
+      courseType,
       steps,
       photo,
       ingredients[] {
