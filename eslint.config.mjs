@@ -1,7 +1,6 @@
-import react from 'eslint-plugin-react'
 import prettier from 'eslint-plugin-prettier'
+import astro from 'eslint-plugin-astro'
 import globals from 'globals'
-import tsParser from '@typescript-eslint/parser'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
@@ -20,9 +19,9 @@ const gitignorePath = path.resolve(__dirname, '.gitignore')
 export default [
   includeIgnoreFile(gitignorePath),
   ...compat.extends('prettier'),
+  ...astro.configs.recommended,
   {
     plugins: {
-      react,
       prettier,
     },
 
@@ -31,15 +30,8 @@ export default [
         ...globals.node,
       },
 
-      parser: tsParser,
-      ecmaVersion: 9,
+      ecmaVersion: 'latest',
       sourceType: 'module',
-
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
     },
 
     rules: {
