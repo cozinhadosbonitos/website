@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+@import '@fontsource/karla/400.css';
+@import '@fontsource/karla/600.css';
+@import '@fontsource/lato/400.css';
+@import '@fontsource/lato/700.css';
+
+@theme {
+  --font-heading: 'Karla', sans-serif;
+  --font-body: 'Lato', serif;
+  --color-primary: #f4a460;
+  --color-primary-dark: #b66e41;
+  --color-secondary: #e5e5e5;
+}
+
+html {
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.1;
+}
