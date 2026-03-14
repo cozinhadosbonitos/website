@@ -26,7 +26,7 @@
     "@fontsource/karla": "5.2.8",
     "@fontsource/lato": "5.2.7",
     "@sanity/client": "7.17.0",
-    "@sanity/image-url": "1.2.0",
+    "@sanity/image-url": "2.0.3",
     "@tailwindcss/vite": "4.2.1",
     "astro": "6.0.4",
     "tailwindcss": "4.2.1",
