@@ -5,9 +5,18 @@ import { getAllRecipes, urlFor } from '../lib/sanity'
 const recipes = await getAllRecipes()
 
 // Pre-compute image URLs and collect filter options
+const courseTypeLabels: Record<string, string> = {
+  appetizer: 'Appetizer',
+  dessert: 'Dessert',
+  main: 'Main',
+  snack: 'Snack',
+  starter: 'Starter',
+}
+
 const recipesData = recipes.map((recipe) => ({
   title: recipe.title,
   tags: recipe.tags || [],
+  courseType: recipe.courseType || '',
   ingredients:
     recipe.ingredients?.map((i) => i.food?.name).filter(Boolean) || [],
   imageUrl: recipe.photo
@@ -17,7 +26,9 @@ const recipesData = recipes.map((recipe) => ({
   createdAt: recipe._createdAt,
 }))
 
-const allTags = [...new Set(recipesData.flatMap((r) => r.tags))].sort()
+const allCourseTypes = [
+  ...new Set(recipesData.map((r) => r.courseType).filter(Boolean)),
+].sort()
 const allIngredients = [
   ...new Set(recipesData.flatMap((r) => r.ingredients)),
 ].sort()
@@ -47,21 +58,19 @@ const allIngredients = [
 
       <div class="sm:min-w-40">
         <label
-          for="category"
+          for="course-type"
           class="mb-1 block text-xs font-medium uppercase tracking-wide text-gray-500"
         >
-          Category
+          Type
         </label>
         <select
-          id="category"
+          id="course-type"
           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm transition-colors focus:border-primary focus:outline-none"
         >
           <option value="">All</option>
           {
-            allTags.map((tag) => (
-              <option value={tag}>
-                {tag.charAt(0).toUpperCase() + tag.slice(1)}
-              </option>
+            allCourseTypes.map((type) => (
+              <option value={type}>{courseTypeLabels[type] || type}</option>
             ))
           }
         </select>
@@ -106,7 +115,7 @@ const allIngredients = [
             href={recipe.url}
             class="recipe-card group overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-xl"
             data-title={recipe.title.toLowerCase()}
-            data-tags={JSON.stringify(recipe.tags)}
+            data-course-type={recipe.courseType}
             data-ingredients={JSON.stringify(recipe.ingredients)}
           >
             {recipe.imageUrl && (
