@@ -18,55 +18,59 @@ if (!recipe) {
 ---
 
 <BaseLayout title={recipe.title}>
-  {recipe.photo && (
-    <img
-      src={urlFor(recipe.photo).width(1200).height(630).url()}
-      alt={recipe.title}
-      width="1200"
-      height="630"
-      class="mx-auto mb-8 w-full max-w-5xl object-cover"
-    />
-  )}
+  {
+    recipe.photo && (
+      <img
+        src={urlFor(recipe.photo).width(1200).height(630).url()}
+        alt={recipe.title}
+        width="1200"
+        height="630"
+        class="mx-auto mb-8 w-full max-w-5xl object-cover"
+      />
+    )
+  }
 
   <div class="mx-auto max-w-4xl px-4">
     <h1 class="mb-2 text-4xl">{recipe.title}</h1>
 
-    {recipe.tags && recipe.tags.length > 0 && (
-      <div class="mb-8 flex flex-wrap gap-2">
-        {recipe.tags.map((tag) => (
-          <span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary-dark">
-            {tag}
-          </span>
-        ))}
-      </div>
-    )}
+    {
+      recipe.tags && recipe.tags.length > 0 && (
+        <div class="mb-8 flex flex-wrap gap-2">
+          {recipe.tags.map((tag) => (
+            <span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary-dark">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
 
     <section class="mb-8">
       <h2 class="mb-4 text-2xl">Ingredients</h2>
       <ul class="space-y-2">
-        {recipe.ingredients?.map((ingredient) => (
-          <li class="flex items-center gap-3">
-            {ingredient.food?.photo && (
-              <img
-                src={urlFor(ingredient.food.photo).width(40).height(40).url()}
-                alt={ingredient.food.name}
-                width="40"
-                height="40"
-                class="rounded-full"
-              />
-            )}
-            <span>{ingredient.display}</span>
-          </li>
-        ))}
+        {
+          recipe.ingredients?.map((ingredient) => (
+            <li class="flex items-center gap-3">
+              {ingredient.food?.photo && (
+                <img
+                  src={urlFor(ingredient.food.photo).width(40).height(40).url()}
+                  alt={ingredient.food.name}
+                  width="40"
+                  height="40"
+                  class="rounded-full"
+                />
+              )}
+              <span>{ingredient.display}</span>
+            </li>
+          ))
+        }
       </ul>
     </section>
 
     <section class="mb-8">
       <h2 class="mb-4 text-2xl">Steps</h2>
       <ol class="list-inside list-decimal space-y-3">
-        {recipe.steps?.map((step) => (
-          <li class="leading-relaxed">{step}</li>
-        ))}
+        {recipe.steps?.map((step) => <li class="leading-relaxed">{step}</li>)}
       </ol>
     </section>
 

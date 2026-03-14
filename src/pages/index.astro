@@ -9,35 +9,40 @@ const recipes = await getAllRecipes()
   <div class="mx-auto max-w-4xl px-4">
     <h2 class="mb-8 text-3xl">Recipes</h2>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {recipes.map((recipe) => (
-        <a
-          href={`/recipes/${encodeURIComponent(recipe.title)}/`}
-          class="group overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
-        >
-          {recipe.photo && (
-            <img
-              src={urlFor(recipe.photo).width(400).height(300).url()}
-              alt={recipe.title}
-              width="400"
-              height="300"
-              loading="lazy"
-              class="h-48 w-full object-cover transition-transform group-hover:scale-105"
-            />
-          )}
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-dark">
-              {recipe.title}
-            </h3>
-            <time class="mt-1 text-sm text-gray-500" datetime={recipe._createdAt}>
-              {new Date(recipe._createdAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </time>
-          </div>
-        </a>
-      ))}
+      {
+        recipes.map((recipe) => (
+          <a
+            href={`/recipes/${encodeURIComponent(recipe.title)}/`}
+            class="group overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
+          >
+            {recipe.photo && (
+              <img
+                src={urlFor(recipe.photo).width(400).height(300).url()}
+                alt={recipe.title}
+                width="400"
+                height="300"
+                loading="lazy"
+                class="h-48 w-full object-cover transition-transform group-hover:scale-105"
+              />
+            )}
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-dark">
+                {recipe.title}
+              </h3>
+              <time
+                class="mt-1 text-sm text-gray-500"
+                datetime={recipe._createdAt}
+              >
+                {new Date(recipe._createdAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>
