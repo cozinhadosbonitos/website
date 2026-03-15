@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getAllRecipes, getRecipeBySlug, urlFor } from '../../lib/sanity'
+
+export async function getStaticPaths() {
+  const recipes = await getAllRecipes()
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.slug },
+  }))
+}
+
+const { slug } = Astro.params
+const recipe = await getRecipeBySlug(slug as string)
+
+if (!recipe) {
+  return Astro.redirect('/404')
+}
+---
+
+<BaseLayout title={recipe.title}>
+  <!-- Hero Image -->
+  {
+    recipe.photo && (
+      <div class="relative mx-auto max-w-5xl overflow-hidden px-4">
+        <img
+          src={urlFor(recipe.photo).width(1200).height(630).url()}
+          alt={recipe.title}
+          width="1200"
+          height="630"
+          class="w-full rounded-2xl object-cover shadow-xl"
+        />
+      </div>
+    )
+  }
+
+  <div class="mx-auto max-w-3xl px-4">
+    <!-- Title & Tags -->
+    <div class="mt-8 mb-10">
+      <h1 class="mb-4 text-4xl font-bold md:text-5xl">{recipe.title}</h1>
+      {
+        recipe.tags && recipe.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {recipe.tags.map((tag) => (
+              <span class="rounded-full bg-primary-light px-4 py-1.5 text-sm font-semibold text-primary-dark">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+
+    <!-- Ingredients -->
+    <section
+      class="mb-10 rounded-2xl border border-primary/10 bg-white p-6 shadow-sm"
+    >
+      <div class="mb-5 flex items-center gap-2.5">
+        <span class="text-2xl">🧺</span>
+        <h2 class="text-2xl font-bold">Ingredients</h2>
+      </div>
+      <ul class="grid gap-3 sm:grid-cols-2">
+        {
+          recipe.ingredients?.map((ingredient) => (
+            <li class="flex items-center gap-3 rounded-xl bg-warm-bg p-3 transition-colors hover:bg-primary-light/50">
+              {ingredient.food?.photo ? (
+                <img
+                  src={urlFor(ingredient.food.photo).width(48).height(48).url()}
+                  alt={ingredient.food.name}
+                  width="48"
+                  height="48"
+                  class="h-10 w-10 rounded-full object-cover ring-2 ring-primary/20"
+                />
+              ) : (
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-lg">
+                  🥘
+                </span>
+              )}
+              <span class="text-sm font-medium text-gray-700">
+                {ingredient.display}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Steps -->
+    <section class="mb-10">
+      <div class="mb-5 flex items-center gap-2.5">
+        <span class="text-2xl">👩‍🍳</span>
+        <h2 class="text-2xl font-bold">Steps</h2>
+      </div>
+      <ol class="space-y-4">
+        {
+          recipe.steps?.map((step, i) => (
+            <li class="flex gap-4">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-white text-sm">
+                {i + 1}
+              </span>
+              <p class="pt-1 leading-relaxed text-gray-700">{step}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- Back Link -->
+    <a
+      href="/recipes/"
+      class="group inline-flex items-center gap-2 rounded-full border border-gray-200 px-5 py-2.5 text-sm font-semibold text-gray-500 transition-all hover:border-primary/30 hover:bg-primary-light hover:text-primary-dark"
+    >
+      <svg
+        class="h-4 w-4 transition-transform group-hover:-translate-x-0.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2.5"
+          d="M15 19l-7-7 7-7"></path>
+      </svg>
+      Back to all recipes
+    </a>
+  </div>
+</BaseLayout>

@@ -18,6 +18,7 @@ export function urlFor(source: SanityImageSource) {
 export interface SanityRecipe {
   _id: string
   title: string
+  slug: string
   _createdAt: string
   tags: string[]
   courseType: string
@@ -37,6 +38,7 @@ export async function getAllRecipes(): Promise<SanityRecipe[]> {
     `*[_type == "recipe"] | order(_createdAt desc) {
       _id,
       title,
+      "slug": slug.current,
       _createdAt,
       tags,
       courseType,
@@ -52,13 +54,14 @@ export async function getAllRecipes(): Promise<SanityRecipe[]> {
   )
 }
 
-export async function getRecipeByTitle(
-  title: string
+export async function getRecipeBySlug(
+  slug: string
 ): Promise<SanityRecipe | null> {
   const recipes = await client.fetch(
-    `*[_type == "recipe" && title == $title] {
+    `*[_type == "recipe" && slug.current == $slug] {
       _id,
       title,
+      "slug": slug.current,
       _createdAt,
       tags,
       courseType,
@@ -72,7 +75,7 @@ export async function getRecipeByTitle(
         }
       }
     }`,
-    { title }
+    { slug }
   )
   return recipes[0] || null
 }
