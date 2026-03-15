@@ -10,6 +10,8 @@ const { title, description = 'Cooking website Cozinha dos Bonitos' } =
   Astro.props
 const siteTitle = 'Cozinha dos Bonitos'
 const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`
+
+const currentPath = Astro.url.pathname
 ---
 
 <!doctype html>
@@ -27,31 +29,59 @@ const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{fullTitle}</title>
   </head>
-  <body class="flex min-h-screen flex-col bg-white text-gray-900">
-    <header class="flex justify-center py-10">
-      <a
-        href="/"
-        class="text-primary hover:text-primary-dark transition-colors"
+  <body class="flex min-h-screen flex-col bg-warm-bg text-gray-900">
+    <header class="relative overflow-hidden bg-warm-bg-alt">
+      <div
+        class="absolute inset-0 opacity-[0.03]"
+        style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22><text x=%2215%22 y=%2240%22 font-size=%2230%22>🍳</text></svg>'); background-size: 60px 60px;"
       >
-        <img src="/logo.svg" alt={siteTitle} class="h-13 w-auto" />
-      </a>
+      </div>
+      <div class="relative flex justify-center py-8">
+        <a
+          href="/"
+          class="group flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            src="/logo.svg"
+            alt={siteTitle}
+            class="h-13 w-auto fill-current"
+          />
+          <span class="text-sm tracking-widest text-primary-dark/60 uppercase">
+            Homemade with love
+          </span>
+        </a>
+      </div>
     </header>
 
-    <nav class="border-b border-gray-200">
+    <nav
+      class="sticky top-0 z-50 border-b border-primary/10 bg-white/90 backdrop-blur-md"
+    >
       <div
-        class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3"
+        class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3"
       >
         <div class="hidden gap-8 sm:flex">
           <a
             href="/"
-            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
-            >Home</a
+            class:list={[
+              'relative px-1 py-0.5 text-sm font-semibold tracking-wide uppercase transition-colors duration-200',
+              currentPath === '/'
+                ? 'text-primary-dark after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-primary'
+                : 'text-gray-500 hover:text-primary-dark',
+            ]}
           >
+            Home
+          </a>
           <a
             href="/recipes/"
-            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
-            >Recipes</a
+            class:list={[
+              'relative px-1 py-0.5 text-sm font-semibold tracking-wide uppercase transition-colors duration-200',
+              currentPath.startsWith('/recipes')
+                ? 'text-primary-dark after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-primary'
+                : 'text-gray-500 hover:text-primary-dark',
+            ]}
           >
+            Recipes
+          </a>
         </div>
         <button
           id="mobile-menu-btn"
@@ -72,18 +102,30 @@ const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`
           </svg>
         </button>
       </div>
-      <div id="mobile-menu" class="hidden border-t border-gray-200 sm:hidden">
+      <div id="mobile-menu" class="hidden border-t border-primary/10 sm:hidden">
         <div class="flex flex-col gap-2 px-4 py-3">
           <a
             href="/"
-            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
-            >Home</a
+            class:list={[
+              'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+              currentPath === '/'
+                ? 'bg-primary-light text-primary-dark'
+                : 'text-gray-600 hover:bg-primary-light/50 hover:text-primary-dark',
+            ]}
           >
+            Home
+          </a>
           <a
             href="/recipes/"
-            class="text-sm font-medium text-gray-600 transition-colors hover:text-primary-dark"
-            >Recipes</a
+            class:list={[
+              'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+              currentPath.startsWith('/recipes')
+                ? 'bg-primary-light text-primary-dark'
+                : 'text-gray-600 hover:bg-primary-light/50 hover:text-primary-dark',
+            ]}
           >
+            Recipes
+          </a>
         </div>
       </div>
     </nav>
@@ -95,17 +137,34 @@ const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`
       <slot />
     </main>
 
-    <footer class="bg-primary py-8 text-black">
-      <div class="mx-auto max-w-4xl px-4">
-        &copy; {new Date().getFullYear()}, Built with
-        <a
-          href="https://astro.build"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline hover:no-underline"
-        >
-          Astro
-        </a>
+    <footer class="relative overflow-hidden bg-gray-900 py-12 text-gray-300">
+      <div
+        class="absolute inset-0 opacity-5"
+        style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22><text x=%2220%22 y=%2255%22 font-size=%2240%22>🍽️</text></svg>'); background-size: 80px 80px;"
+      >
+      </div>
+      <div class="relative mx-auto max-w-5xl px-4">
+        <div class="flex flex-col items-center gap-4">
+          <img
+            src="/logo.svg"
+            alt={siteTitle}
+            class="h-8 w-auto opacity-40 brightness-200 invert"
+          />
+          <p class="text-sm text-gray-500">
+            Made with love &amp; a pinch of salt
+          </p>
+          <p class="text-xs text-gray-600">
+            &copy; {new Date().getFullYear()}, Built with
+            <a
+              href="https://astro.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline transition-colors hover:text-primary"
+            >
+              Astro
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   </body>
