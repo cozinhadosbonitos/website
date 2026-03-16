@@ -21,14 +21,14 @@
     "lint:tsc": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.7",
+    "@astrojs/check": "0.9.8",
     "@astrojs/sitemap": "3.7.1",
     "@fontsource/karla": "5.2.8",
     "@fontsource/lato": "5.2.7",
     "@sanity/client": "7.17.0",
     "@sanity/image-url": "2.0.3",
     "@tailwindcss/vite": "4.2.1",
-    "astro": "6.0.4",
+    "astro": "6.0.5",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3"
   },
@@ -36,7 +36,7 @@
     "@eslint/compat": "2.0.3",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",
-    "@typescript-eslint/parser": "8.57.0",
+    "@typescript-eslint/parser": "8.57.1",
     "eslint": "10.0.3",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-astro": "1.6.0",
