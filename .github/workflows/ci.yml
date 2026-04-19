@@ -11,9 +11,9 @@ concurrency:
 
 jobs:
   lint:
-    uses: browniebroke/github-actions/.github/workflows/ts-lint.yml@v1
+    uses: browniebroke/github-actions/.github/workflows/ts-lint.yml@v1.23.0
   deploy:
-    uses: browniebroke/github-actions/.github/workflows/netlify-deploy.yml@v1
+    uses: browniebroke/github-actions/.github/workflows/netlify-deploy.yml@v1.23.0
     with:
       netlify_site_id: 'eeed038d-eb38-46f6-ba73-387aedb05935'
       publish_dir: 'dist'
