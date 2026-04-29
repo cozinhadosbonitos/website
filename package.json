@@ -21,22 +21,22 @@
     "lint:tsc": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.8",
+    "@astrojs/check": "0.9.9",
     "@astrojs/sitemap": "3.7.2",
     "@fontsource/karla": "5.2.8",
     "@fontsource/lato": "5.2.7",
     "@sanity/client": "7.22.0",
     "@sanity/image-url": "2.1.1",
-    "@tailwindcss/vite": "4.2.2",
-    "astro": "6.1.8",
-    "tailwindcss": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
+    "astro": "6.1.10",
+    "tailwindcss": "4.2.4",
     "typescript": "5.9.3"
   },
   "devDependencies": {
     "@eslint/compat": "2.0.5",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",
-    "@typescript-eslint/parser": "8.59.0",
+    "@typescript-eslint/parser": "8.59.1",
     "eslint": "10.2.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-astro": "1.7.0",
