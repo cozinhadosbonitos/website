@@ -22,13 +22,13 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/sitemap": "3.7.2",
+    "@astrojs/sitemap": "3.7.3",
     "@fontsource/karla": "5.2.8",
     "@fontsource/lato": "5.2.7",
     "@sanity/client": "7.22.0",
     "@sanity/image-url": "2.1.1",
     "@tailwindcss/vite": "4.2.2",
-    "astro": "6.3.7",
+    "astro": "6.3.8",
     "tailwindcss": "4.2.2",
     "typescript": "6.0.3"
   },
