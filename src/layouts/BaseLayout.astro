@@ -34,8 +34,7 @@ const currentPath = Astro.url.pathname
       <div
         class="absolute inset-0 opacity-[0.03]"
         style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22><text x=%2215%22 y=%2240%22 font-size=%2230%22>🍳</text></svg>'); background-size: 60px 60px;"
-      >
-      </div>
+      ></div>
       <div class="relative flex justify-center py-8">
         <a
           href="/"
@@ -53,12 +52,8 @@ const currentPath = Astro.url.pathname
       </div>
     </header>
 
-    <nav
-      class="sticky top-0 z-50 border-b border-primary/10 bg-white/90 backdrop-blur-md"
-    >
-      <div
-        class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3"
-      >
+    <nav class="sticky top-0 z-50 border-b border-primary/10 bg-white/90 backdrop-blur-md">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         <div class="hidden gap-8 sm:flex">
           <a
             href="/"
@@ -98,7 +93,8 @@ const currentPath = Astro.url.pathname
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
           </svg>
         </button>
       </div>
@@ -132,7 +128,6 @@ const currentPath = Astro.url.pathname
     <script>
       import '../lib/mobile-menu.js'
     </script>
-
     <main class="flex-1 py-10">
       <slot />
     </main>
@@ -141,8 +136,7 @@ const currentPath = Astro.url.pathname
       <div
         class="absolute inset-0 opacity-5"
         style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 80 80%22><text x=%2220%22 y=%2255%22 font-size=%2240%22>🍽️</text></svg>'); background-size: 80px 80px;"
-      >
-      </div>
+      ></div>
       <div class="relative mx-auto max-w-5xl px-4">
         <div class="flex flex-col items-center gap-4">
           <img
